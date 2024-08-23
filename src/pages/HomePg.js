@@ -7,15 +7,13 @@ export const HomePage = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="homepage-container">
-        {category.map(({ categoryName, description, _id }) => (
-          <div id={_id} style={{ display: "inline-block", padding: "1rem" }}>
-            <h3>{categoryName}</h3>
-          </div>
-        ))}
+      {category.map(({ categoryName, description, _id }) => (
+        <div id={_id} style={{ display: "inline-block", padding: "1rem" }}>
+          <h3>{categoryName}</h3>
+        </div>
+      ))}
 
-        <button onClick={() => navigate("/Product")}>Store</button>
-      </div>
+      <button onClick={() => navigate("/Product")}>Store</button>
     </div>
   );
 };
