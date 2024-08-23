@@ -1,0 +1,66 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80rem;
+  float: right;
+  padding: 1rem;
+}
+.product-card {
+  border: 1px solid #ddd;
+
+  padding-top: 4%;
+  margin-left: 4rem;
+
+  text-align: center;
+  width: 20rem;
+  margin-bottom: 4rem;
+}
+.heart-button {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border: none;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 1rem;
+  display: flex;
+  margin-left: 1rem;
+}
+
+.heart-button:before,
+.heart-button:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart-button:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart-button:after {
+  top: 0;
+  left: -10px;
+}
+.product-img {
+  width: 200px;
+  height: 250px;
+  object-fit: contain;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.Cartbtn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: beige;
+  font-size: large;
+}
