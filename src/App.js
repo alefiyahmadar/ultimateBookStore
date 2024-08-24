@@ -6,7 +6,9 @@ import { PoductListPg } from "./pages/ProdList";
 export default function App() {
   return (
     <div className="App">
-      <h2>Ultimate BookStore</h2>
+      <nav className="nav">
+        
+      </nav>
 
       <Routes>
         <Route path="/" element={<HomePage />}></Route>

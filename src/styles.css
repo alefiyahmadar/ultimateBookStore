@@ -64,3 +64,8 @@
   background-color: beige;
   font-size: large;
 }
+@media only screen and (max-width: 425px) {
+  .nav {
+    background-color: beige;
+  }
+}
