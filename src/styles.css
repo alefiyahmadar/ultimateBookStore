@@ -7,7 +7,6 @@
 body {
   margin: 0%;
   padding: 0%;
-
 }
 .productGrid {
   display: grid;
@@ -17,8 +16,7 @@ body {
   padding: 1rem;
 }
 
-
-  .product-card {
+.product-card {
   border: 1px solid #ddd;
 
   padding-top: 4%;
@@ -74,7 +72,6 @@ body {
   background-color: beige;
   font-size: large;
 }
-
 
 @media only screen and (min-width: 425px) {
   .nav {
@@ -133,8 +130,7 @@ body {
     cursor: pointer;
     border-radius: 50%;
   }
-  .homeImgContainer {
-  }
+
   .homeImgContainer img {
     margin-top: 3rem;
     width: 100%;
@@ -175,6 +171,5 @@ body {
     text-align: center;
     width: 20rem;
     margin-bottom: 4rem;
-
   }
 }
