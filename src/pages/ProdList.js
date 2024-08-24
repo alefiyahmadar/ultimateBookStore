@@ -1,14 +1,95 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../contextProvider";
 import { ProductCard } from "../cards/productCard";
 
 export const PoductListPg = () => {
-  const { product, setProduct } = useContext(AppContext);
+  const {
+    GetCategoryHandler,
+    RangeHandler,
+    rangeValue,
+    SortHandler,
+    GetSortData,
+    filters,
+  } = useContext(AppContext);
+
   return (
-    <div className="productGrid">
-      {product.map((item) => (
-        <ProductCard {...item} />
-      ))}
+    <div>
+      <div className="filterBar">
+        <p>filter</p>
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            listStyle: "none",
+          }}
+        >
+          <p>Category</p>
+          <li>
+            <input
+              type="checkbox"
+              value="fiction"
+              onChange={GetCategoryHandler}
+              checked={filters.categoryValue.includes("fiction")}
+            />
+            <label>fiction</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              value="nonfiction"
+              onChange={GetCategoryHandler}
+              checked={filters.categoryValue.includes("nonfiction")}
+            />
+            <label>nonfiction</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              value="horror"
+              onChange={GetCategoryHandler}
+              checked={filters.categoryValue.includes("horror")}
+            />
+            <label>horror</label>
+          </li>
+          <p>Rating</p>
+          <li>
+            <p>Selected Rating: {rangeValue}</p>
+            <input
+              type="range"
+              min="0"
+              max="5"
+              onChange={RangeHandler}
+              value={rangeValue}
+              className="custom-range-slider"
+            />
+          </li>
+          <p>Price</p>
+          <li>
+            <input
+              name="sort"
+              type="radio"
+              onChange={SortHandler}
+              value={"LowToHigh"}
+            />
+            <label>Low-High</label>
+          </li>
+          <li>
+            <input
+              name="sort"
+              type="radio"
+              onChange={SortHandler}
+              value={"HighToLow"}
+            />
+            <label>High-Low</label>
+          </li>
+        </ul>
+      </div>
+
+      <div className="productGrid">
+        {GetSortData.map((item) => (
+          <ProductCard {...item} />
+        ))}
+      </div>
     </div>
   );
 };
