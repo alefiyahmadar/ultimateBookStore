@@ -126,4 +126,16 @@ body {
     cursor: pointer;
     border-radius: 50%;
   }
+  .homeImgContainer {
+  }
+  .homeImgContainer img {
+    margin-top: 3rem;
+    width: 100%;
+    height: 50vh;
+  }
+  .homePgContainer img {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
