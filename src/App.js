@@ -7,13 +7,9 @@ export default function App() {
   return (
     <div className="App">
       <nav className="nav">
-
         <p>BookStore</p>
       </nav>
 
-
-        <h4>BookStore</h4>
-      </nav>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/Product" element={<PoductListPg />}></Route>
