@@ -12,8 +12,7 @@ export default function App() {
       </nav>
 
 
-        <h4>BookStore</h4>
-      </nav>
+        
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/Product" element={<PoductListPg />}></Route>
