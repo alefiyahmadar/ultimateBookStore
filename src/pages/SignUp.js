@@ -1,7 +1,54 @@
+import { useContext, useState, useEffect } from "react";
+import { AppContext } from "../contextProvider";
+
 export const SignUpPg = () => {
+  const [NewUser, setNewUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    cart: [],
+    wishlist: [],
+  });
+  const { usersArray, setUserArray } = useContext(AppContext);
+
+  const SignUpHandler = () => {
+    const getUserArr = JSON.parse(localStorage.getItem("usersArray"));
+    const UpdatedArr = [...usersArray, NewUser];
+
+    localStorage.setItem("usersArray", JSON.stringify(UpdatedArr));
+    setUserArray(UpdatedArr);
+  };
+
+  useEffect(() => {
+    const storedUsers = localStorage.getItem("usersArray");
+    if (storedUsers) {
+      setUserArray(JSON.parse(storedUsers));
+    }
+  }, [setUserArray]);
+
+  console.log(usersArray);
+
   return (
     <div>
-      <p>SignUp</p>
+      <h3>SignUp</h3>
+      <input
+        placeholder="FirstName"
+        onChange={(e) => setNewUser({ ...NewUser, firstName: e.target.value })}
+      />
+      <input
+        placeholder="LastName"
+        onChange={(e) => setNewUser({ ...NewUser, lastName: e.target.value })}
+      />
+      <input
+        placeholder="Email"
+        onChange={(e) => setNewUser({ ...NewUser, email: e.target.value })}
+      />
+      <input
+        placeholder="Password"
+        onChange={(e) => setNewUser({ ...NewUser, password: e.target.value })}
+      />
+      <button onClick={SignUpHandler}>SignUp</button>
     </div>
   );
 };

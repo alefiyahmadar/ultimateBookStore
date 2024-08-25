@@ -24,10 +24,10 @@ export const AppContextProvider = ({ children }) => {
     password: "adarshbalika",
     wishlist: [],
   });
+
+  const userArrayStored = JSON.parse(localStorage.getItem("usersArray"));
   const [usersArray, setUserArray] = useState(
-    localStorage.getItem("usersArray")
-      ? JSON.parse(localStorage.getItem("usersArray"))
-      : users
+    userArrayStored ? userArrayStored : users
   );
 
   const GetCategoryHandler = (event) => {
