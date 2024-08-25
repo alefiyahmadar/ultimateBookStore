@@ -1,9 +1,12 @@
 import { useContext, React } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../contextProvider";
 
 export const ProductCard = (item) => {
   const { _id, title, author, price, image, rating } = item;
+
+  const { AddToCartBtn } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -30,7 +33,9 @@ export const ProductCard = (item) => {
         </span>
       </p>
 
-      <button className="Cartbtn">Add To Cart</button>
+      <button className="Cartbtn" onClick={() => AddToCartBtn(item)}>
+        Add To Cart
+      </button>
     </div>
   );
 };

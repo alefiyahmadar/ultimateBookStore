@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { categories } from "./backend/categories";
 import { products } from "./backend/product";
-import { getAllJSDocTags } from "typescript";
+import { users } from "./backend/users";
+import { v4 as uuid } from "uuid";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
@@ -12,7 +13,22 @@ export const AppContextProvider = ({ children }) => {
     rating: "",
     sort: "",
   });
+
   const [rangeValue, setRange] = useState(0);
+  const [defaultUser, setDefaultUser] = useState({
+    _id: uuid(),
+    cart: [],
+    email: "adarshbalika@gmail.com",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    password: "adarshbalika",
+    wishlist: [],
+  });
+  const [usersArray, setUserArray] = useState(
+    localStorage.getItem("usersArray")
+      ? JSON.parse(localStorage.getItem("usersArray"))
+      : users
+  );
 
   const GetCategoryHandler = (event) => {
     const IsSimilar = filters.categoryValue.find(
@@ -53,6 +69,17 @@ export const AppContextProvider = ({ children }) => {
       )
     : GetRatingData;
 
+  const SaveUser = () => {
+    localStorage.setItem("usersArray", JSON.stringify(users));
+  };
+  useEffect(() => {
+    return SaveUser;
+  }, []);
+
+  const AddToCartBtn = (item) => {
+    console.log(item);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -69,6 +96,9 @@ export const AppContextProvider = ({ children }) => {
         GetRatingData,
         SortHandler,
         GetSortData,
+        usersArray,
+        setUserArray,
+        AddToCartBtn,
       }}
     >
       {children}
