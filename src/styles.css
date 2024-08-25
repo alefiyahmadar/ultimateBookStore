@@ -142,34 +142,3 @@ body {
     justify-content: space-between;
   }
 }
-
-@media only screen and (min-width: 430px) {
-  .nav {
-    background-color: beige;
-    display: flex;
-    height: 10vh;
-    padding-left: 2rem;
-  }
-  .nav h4 {
-    font-size: x-large;
-
-    margin-top: 1%;
-  }
-  .productGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 80rem;
-    float: right;
-    padding: 1rem;
-  }
-  .product-card {
-    border: 1px solid #ddd;
-
-    padding-top: 4%;
-    margin-left: 4rem;
-
-    text-align: center;
-    width: 20rem;
-    margin-bottom: 4rem;
-  }
-}
