@@ -31,7 +31,6 @@ export const AppContextProvider = ({ children }) => {
     filters.categoryValue.length > 0
       ? product.filter((item) => filters.categoryValue.some((cat) => item[cat]))
       : product;
-  console.log(GetCategoryData);
 
   const RangeHandler = (event) => {
     console.log(event.target.value);
@@ -53,9 +52,6 @@ export const AppContextProvider = ({ children }) => {
         filters.sort === "LowToHigh" ? a.price - b.price : b.price - a.price
       )
     : GetRatingData;
-
-  console.log(filters);
-  console.log(GetSortData);
 
   return (
     <AppContext.Provider
