@@ -85,6 +85,9 @@ body {
     padding: 0%;
     margin: 0;
   }
+  .categoryContiner {
+    margin-top: 3rem;
+  }
   .homePgContainer {
     margin-top: 3rem;
   }
