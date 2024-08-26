@@ -1,8 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../contextProvider";
+import { v4 as uuid } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpPg = () => {
   const [NewUser, setNewUser] = useState({
+    _id: uuid(),
     firstName: "",
     lastName: "",
     email: "",
@@ -10,14 +13,18 @@ export const SignUpPg = () => {
     cart: [],
     wishlist: [],
   });
-  const { usersArray, setUserArray } = useContext(AppContext);
+  const { usersArray, setUserArray, user, setUser } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const SignUpHandler = () => {
-    const getUserArr = JSON.parse(localStorage.getItem("usersArray"));
     const UpdatedArr = [...usersArray, NewUser];
+
+    localStorage.setItem("user", JSON.stringify(NewUser));
+    setUser(NewUser);
 
     localStorage.setItem("usersArray", JSON.stringify(UpdatedArr));
     setUserArray(UpdatedArr);
+    navigate("/");
   };
 
   useEffect(() => {

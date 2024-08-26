@@ -4,16 +4,32 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contextProvider";
 
 export const ProductCard = (item) => {
-  const { _id, title, author, price, image, rating } = item;
+  const { _id, title, author, price, image, rating, isAddedToCart, isWished } =
+    item;
 
-  const { AddToCartBtn } = useContext(AppContext);
+  const { AddToCartBtn, RemoveCartBtn, AddToWishlistBtn, RemoveWishBtn } =
+    useContext(AppContext);
 
   const navigate = useNavigate();
+
+  const getUser = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div key={_id} className="product-card">
       <span className="heartSpan">
-        <button className="heart-button"></button>
+        <button
+          onClick={
+            isWished ? () => RemoveWishBtn(item) : () => AddToWishlistBtn(item)
+          }
+          className="heart-button"
+          style={{
+            opacity: JSON.parse(localStorage.getItem("user")).wishlist.find(
+              (e) => e.title === title
+            )
+              ? "1"
+              : "0.4",
+          }}
+        ></button>
       </span>
 
       <img className="product-img" src={image} alt=""></img>
@@ -33,8 +49,13 @@ export const ProductCard = (item) => {
         </span>
       </p>
 
-      <button className="Cartbtn" onClick={() => AddToCartBtn(item)}>
-        Add To Cart
+      <button
+        className="Cartbtn"
+        onClick={
+          isAddedToCart ? () => RemoveCartBtn(item) : () => AddToCartBtn(item)
+        }
+      >
+        {isAddedToCart ? "Remove From Cart" : "Add To Cart"}
       </button>
     </div>
   );
