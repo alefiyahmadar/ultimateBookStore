@@ -39,6 +39,10 @@ export const AppContextProvider = ({ children }) => {
       : []
   );
 
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(defaultUser));
+  }, []);
+
   const GetCategoryHandler = (event) => {
     const IsSimilar = filters.categoryValue.find(
       (e) => e === event.target.value

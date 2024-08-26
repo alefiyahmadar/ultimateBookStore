@@ -10,10 +10,7 @@ export const ProductCard = (item) => {
   const { AddToCartBtn, RemoveCartBtn, AddToWishlistBtn, RemoveWishBtn } =
     useContext(AppContext);
 
-  const navigate = useNavigate();
-
-  const getUser = JSON.parse(localStorage.getItem("user"));
-
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
     <div key={_id} className="product-card">
       <span className="heartSpan">
@@ -23,9 +20,7 @@ export const ProductCard = (item) => {
           }
           className="heart-button"
           style={{
-            opacity: JSON.parse(localStorage.getItem("user")).wishlist.find(
-              (e) => e.title === title
-            )
+            opacity: currentUser.wishlist.find((e) => e.title === title)
               ? "1"
               : "0.4",
           }}
