@@ -39,9 +39,16 @@ export const AppContextProvider = ({ children }) => {
       : []
   );
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(defaultUser));
-  }, []);
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userArrayStored = JSON.parse(localStorage.getItem("usersArray"));
+
+  storedUser
+    ? localStorage.setItem("user", JSON.stringify(storedUser))
+    : localStorage.setItem("user", JSON.stringify(defaultUser));
+
+  userArrayStored
+    ? localStorage.setItem("usersArray", JSON.stringify(userArrayStored))
+    : localStorage.setItem("usersArray", JSON.stringify(usersArray));
 
   const GetCategoryHandler = (event) => {
     const IsSimilar = filters.categoryValue.find(

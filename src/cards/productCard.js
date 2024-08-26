@@ -10,9 +10,15 @@ export const ProductCard = (item) => {
   const { AddToCartBtn, RemoveCartBtn, AddToWishlistBtn, RemoveWishBtn } =
     useContext(AppContext);
 
+  const navigate = useNavigate();
+
   const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
-    <div key={_id} className="product-card">
+    <div
+      onClick={() => navigate(`/individual/${_id}`)}
+      key={_id}
+      className="product-card"
+    >
       <span className="heartSpan">
         <button
           onClick={

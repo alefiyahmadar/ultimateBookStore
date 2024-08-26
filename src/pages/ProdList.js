@@ -15,14 +15,8 @@ export const PoductListPg = () => {
   return (
     <div>
       <div className="filterBar">
-        <p>filter</p>
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            listStyle: "none",
-          }}
-        >
+        <ul>
+          <p>filter</p>
           <p>Category</p>
           <li>
             <input
@@ -53,7 +47,7 @@ export const PoductListPg = () => {
           </li>
           <p>Rating</p>
           <li>
-            <p>Selected Rating: {rangeValue}</p>
+            <h4 className="rangeV">Rating: {rangeValue}</h4>
             <input
               type="range"
               min="0"

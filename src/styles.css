@@ -11,7 +11,7 @@ body {
 .productGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
+  width: 80%;
   float: right;
   padding: 1rem;
 }
@@ -20,10 +20,11 @@ body {
   border: 1px solid #ddd;
 
   padding-top: 4%;
-  margin-left: 4rem;
+  margin-left: 2rem;
 
   text-align: center;
-  width: 15rem;
+  width: 20rem;
+
   margin-bottom: 4rem;
 }
 
@@ -60,8 +61,8 @@ body {
   left: -10px;
 }
 .product-img {
-  width: 100px;
-  height: 150px;
+  width: 150px;
+  height: 200px;
   object-fit: contain;
   box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
 }
@@ -69,14 +70,14 @@ body {
   width: 100%;
   padding: 1rem;
   border: none;
-  background-color: beige;
+  background-color: #f5f5dc;
   font-size: large;
 }
 
 @media only screen and (min-width: 425px) {
   .nav {
     background-color: beige;
-    padding: 1rem;
+    padding: 1.1rem;
     position: fixed;
     width: 100%;
     z-index: 999;
@@ -84,22 +85,64 @@ body {
   .nav p {
     padding: 0%;
     margin: 0;
+    display: flex;
+    font-size: 25px;
+    font-weight: 500;
+    color: #5fa052;
+    margin-left: 2rem;
+  }
+  .nav span {
+    margin: 0%;
+    padding: 0%;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+  }
+  .nav span img {
+    margin-left: 1rem;
+    padding: 0.5rem;
+  }
+  .nav span p {
+    position: absolute;
+    top: 29%;
+    padding-left: 0.5rem;
+    font-size: 15px;
   }
   .categoryContiner {
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
   .homePgContainer {
     margin-top: 3rem;
   }
   .productGrid {
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
   .filterBar {
     position: fixed;
-    width: 30%;
+    width: 20%;
     height: 100vh;
-    border-right: 1px solid black;
-    margin-top: 3rem;
+    border-right: 1px solid #5fa052;
+    margin-top: 4rem;
+  }
+  .filterBar ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    list-style: none;
+  }
+  .filterBar ul li {
+    margin-left: 20%;
+    text-align: left;
+  }
+  .filterBar ul p {
+    margin-left: 20%;
+    text-align: left;
+  }
+  .rangeV {
+    margin-left: 0%;
+    padding-left: 0%;
+    font-size: 15px;
+    font-weight: 400;
   }
   .custom-range-slider {
     width: 50%; /* Adjust the width */
@@ -190,5 +233,30 @@ body {
   }
   .guestBtn {
     background-color: white;
+  }
+  .ProdDetailContainer {
+    padding-top: 4rem;
+  }
+  .ProdDetailDiv {
+    margin: auto;
+    width: 40rem;
+    margin-top: 3rem;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  .ProdDetailDiv span {
+    display: flex;
+  }
+  .ProdDetailDiv span div {
+    width: 50%;
+  }
+  .ProdDetailDiv span div img {
+    width: 320px;
+    height: 300px;
+  }
+  .detailBar {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 1rem;
   }
 }
