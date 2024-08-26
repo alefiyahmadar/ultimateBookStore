@@ -80,7 +80,6 @@ body {
     position: fixed;
     width: 100%;
     z-index: 999;
-    display: none;
   }
   .nav p {
     padding: 0%;
@@ -135,14 +134,61 @@ body {
     border-radius: 50%;
   }
 
-  .homeImgContainer img {
-    margin-top: 3rem;
-    width: 100%;
-    height: 50vh;
+  .SignUpContainer {
+    padding-top: 7rem;
   }
-  .homePgContainer img {
+  .SignUpContainer div {
+    border: 1px solid black;
+    margin: auto;
+    width: 25rem;
+    height: 60vh;
+  }
+  .SignUpContainer span {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 20rem;
+    margin: auto;
+  }
+  .SignUpContainer input {
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+  }
+  .SignUpContainer button {
+    width: 40%;
+    margin: auto;
+    padding: 0.2rem;
+    font-size: 12px;
+  }
+  .SignUpContainer span p {
+    font-size: 15px;
+  }
+  .loginContainer {
+    padding-top: 7rem;
+  }
+  .loginContainer div {
+    border: 1px solid black;
+    margin: auto;
+    width: 25rem;
+    height: 60vh;
+  }
+  .loginContainer span {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin: auto;
+  }
+  .loginContainer input {
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+  }
+  .loginContainer button {
+    width: 40%;
+    margin: auto;
+    padding: 0.2rem;
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+  }
+  .guestBtn {
+    background-color: white;
   }
 }

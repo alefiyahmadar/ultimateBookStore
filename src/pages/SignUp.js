@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../contextProvider";
 import { v4 as uuid } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const SignUpPg = () => {
   const [NewUser, setNewUser] = useState({
@@ -37,25 +37,39 @@ export const SignUpPg = () => {
   console.log(usersArray);
 
   return (
-    <div>
-      <h3>SignUp</h3>
-      <input
-        placeholder="FirstName"
-        onChange={(e) => setNewUser({ ...NewUser, firstName: e.target.value })}
-      />
-      <input
-        placeholder="LastName"
-        onChange={(e) => setNewUser({ ...NewUser, lastName: e.target.value })}
-      />
-      <input
-        placeholder="Email"
-        onChange={(e) => setNewUser({ ...NewUser, email: e.target.value })}
-      />
-      <input
-        placeholder="Password"
-        onChange={(e) => setNewUser({ ...NewUser, password: e.target.value })}
-      />
-      <button onClick={SignUpHandler}>SignUp</button>
+    <div className="SignUpContainer">
+      <div>
+        <span>
+          <h3>SignUp</h3>
+          <input
+            placeholder="FirstName"
+            onChange={(e) =>
+              setNewUser({ ...NewUser, firstName: e.target.value })
+            }
+          />
+          <input
+            placeholder="LastName"
+            onChange={(e) =>
+              setNewUser({ ...NewUser, lastName: e.target.value })
+            }
+          />
+          <input
+            placeholder="Email"
+            onChange={(e) => setNewUser({ ...NewUser, email: e.target.value })}
+          />
+          <input
+            placeholder="Password"
+            onChange={(e) =>
+              setNewUser({ ...NewUser, password: e.target.value })
+            }
+          />
+          <button onClick={SignUpHandler}>SignUp</button>
+          <p>
+            Already have an account?{" "}
+            <NavLink onClick={() => navigate("/login")}>Login</NavLink>
+          </p>
+        </span>
+      </div>
     </div>
   );
 };
