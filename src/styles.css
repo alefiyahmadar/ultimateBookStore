@@ -73,6 +73,10 @@ body {
   background-color: #f5f5dc;
   font-size: large;
 }
+.Cartbtn:hover {
+  background-color: #5fa052;
+  color: white;
+}
 
 @media only screen and (min-width: 425px) {
   .nav {
@@ -82,7 +86,7 @@ body {
     width: 100%;
     z-index: 999;
   }
-  .nav p {
+  .nav h3 {
     padding: 0%;
     margin: 0;
     display: flex;
@@ -102,12 +106,20 @@ body {
     margin-left: 1rem;
     padding: 0.5rem;
   }
-  .nav span p {
+  .cartLength {
     position: absolute;
-    top: 29%;
-    padding-left: 0.5rem;
+    right: 80%;
+    top: 2%;
+
     font-size: 15px;
   }
+  .wishLength {
+    position: absolute;
+    right: 35%;
+    top: 40%;
+    font-size: 15px;
+  }
+
   .categoryContiner {
     margin-top: 4rem;
   }
@@ -240,6 +252,7 @@ body {
   .ProdDetailDiv {
     margin: auto;
     width: 40rem;
+
     margin-top: 3rem;
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
   }
@@ -258,5 +271,64 @@ body {
     flex-direction: column;
     text-align: left;
     margin-left: 1rem;
+  }
+  .detailBar p {
+    margin-bottom: 0%;
+    margin-top: 2%;
+    font-size: 14px;
+    display: flex;
+    color: gray;
+  }
+  .detailBar h5 {
+    margin-bottom: 0%;
+    margin-top: 2%;
+    font-size: 15px;
+    display: flex;
+    color: black;
+  }
+  .detailBar h3 {
+    margin-bottom: 0%;
+  }
+  .detailBar h4 {
+    margin-top: 1%;
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 0%;
+  }
+  .ratingD {
+    font-size: 15px;
+  }
+  .detailBar hr {
+    width: 300px;
+    color: gray;
+  }
+  .detailBar span {
+    color: black;
+  }
+  .CartbtnDetail {
+    width: 70%;
+    margin-top: 3%;
+    background-color: beige;
+    border: none;
+    padding: 0.3rem;
+    font-size: 15px;
+    border-radius: 0.5rem;
+  }
+  .CartbtnDetail:hover {
+    background-color: #5fa052;
+    color: white;
+  }
+  .WishbtnDetail {
+    width: 70%;
+    margin-top: 3%;
+    background-color: white;
+    border: 1px solid #5fa052;
+    padding: 0.3rem;
+    font-size: 15px;
+    border-radius: 0.5rem;
+  }
+  .WishbtnDetail:hover {
+    background-color: #5fa052;
+    color: white;
   }
 }

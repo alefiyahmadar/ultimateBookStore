@@ -28,17 +28,6 @@ export const AppContextProvider = ({ children }) => {
   const [usersArray, setUserArray] = useState(users);
   const [user, setUser] = useState();
 
-  const [cart, setCart] = useState(
-    localStorage.getItem("user") && localStorage.getItem("user").cart
-      ? localStorage.getItem("user").cart
-      : []
-  );
-  const [wishList, setWishList] = useState(
-    localStorage.getItem("user") && localStorage.getItem("user").wishlist
-      ? localStorage.getItem("user").wishlist
-      : []
-  );
-
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const userArrayStored = JSON.parse(localStorage.getItem("usersArray"));
 
@@ -90,7 +79,8 @@ export const AppContextProvider = ({ children }) => {
     : GetRatingData;
 
   const AddToCartBtn = (item) => {
-    setCart([...cart, item]);
+    const newItm = { ...item, isAddedToCart: true };
+
     const userData = JSON.parse(localStorage.getItem("user"));
     const userArrData = JSON.parse(localStorage.getItem("usersArray"));
 
@@ -100,13 +90,17 @@ export const AppContextProvider = ({ children }) => {
       )
     );
 
-    const updatedUser = { ...userData, cart: [...cart, item] };
+    const updatedUser = {
+      ...userData,
+      cart: [...userData.cart, newItm],
+      isAddedToCart: true,
+    };
 
     localStorage.setItem("user", JSON.stringify(updatedUser));
 
     const updateArr = userArrData.map((e) => {
       if (e.email === userData.email && e.password === userData.password) {
-        return { ...e, cart: [...cart, item] };
+        return { ...e, cart: [...userData.cart, newItm], isAddedToCart: true };
       } else {
         return e;
       }
@@ -126,11 +120,11 @@ export const AppContextProvider = ({ children }) => {
     );
     const FilterCart = userData.cart.filter((e) => e.title !== item.title);
 
-    const updatedUser = { ...userData, cart: FilterCart };
+    const updatedUser = { ...userData, cart: FilterCart, isAddedToCart: false };
     localStorage.setItem("user", JSON.stringify(updatedUser));
     const updateArr = userArrData.map((e) => {
       if (e.email === userData.email && e.password === userData.password) {
-        return { ...e, cart: FilterCart };
+        return { ...e, cart: FilterCart, isAddedToCart: false };
       } else {
         return e;
       }
@@ -139,7 +133,8 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const AddToWishlistBtn = (item) => {
-    setWishList([...wishList, item]);
+    const newItm = { ...item, isWished: true };
+
     const getUser = JSON.parse(localStorage.getItem("user"));
     const getUserArr = JSON.parse(localStorage.getItem("usersArray"));
 
@@ -147,12 +142,16 @@ export const AppContextProvider = ({ children }) => {
       prevItem.map((e) => (e._id === item._id ? { ...e, isWished: true } : e))
     );
 
-    const updateUser = { ...getUser, wishlist: [...wishList, item] };
+    const updateUser = {
+      ...getUser,
+      wishlist: [...getUser.wishlist, newItm],
+      isWished: true,
+    };
 
     localStorage.setItem("user", JSON.stringify(updateUser));
     const updateArr = getUserArr.map((e) =>
       e.email === getUser.email && e.password === getUser.password
-        ? { ...e, wishlist: [...wishList, item] }
+        ? { ...e, wishlist: [...e.wishlist, newItm], isWished: true }
         : e
     );
     localStorage.setItem("usersArray", JSON.stringify(updateArr));
@@ -168,12 +167,12 @@ export const AppContextProvider = ({ children }) => {
     );
 
     const filterWish = userData.wishlist.filter((e) => e.title !== item.title);
-    const updatedUser = { ...userData, wishlist: filterWish };
+    const updatedUser = { ...userData, wishlist: filterWish, isWished: false };
     localStorage.setItem("user", JSON.stringify(updatedUser));
 
     const updateArr = userArrData.map((e) =>
       e.email === userData.email && e.password === userData.password
-        ? { ...e, wishlist: filterWish }
+        ? { ...e, wishlist: filterWish, isWished: false }
         : e
     );
     localStorage.setItem("usersArray", JSON.stringify(updateArr));

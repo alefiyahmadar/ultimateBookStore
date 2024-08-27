@@ -7,12 +7,13 @@ import { LoginPage } from "./pages/LoginPg";
 import { PoductDetail } from "./pages/productDetailPg";
 
 export default function App() {
-  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const userCart = JSON.parse(localStorage.getItem("user")).cart;
+  const userWishList = JSON.parse(localStorage.getItem("user")).wishlist;
 
   return (
     <div className="App">
       <nav className="nav">
-        <p>BookStore</p>
+        <h3>BookStore</h3>
         <span>
           <img
             width="40"
@@ -20,13 +21,14 @@ export default function App() {
             src="https://img.icons8.com/pastel-glyph/64/5fa052/shopping-cart--v2.png"
             alt="shopping-cart--v2"
           />
-          <p>{currentUser.cart.length}</p>
+          <p className="cartLength">{userCart.length}</p>
           <img
             width="40"
             height="40"
             src="https://img.icons8.com/external-sbts2018-outline-sbts2018/58/5fa052/external-wishlist-black-friday-5-sbts2018-outline-sbts2018.png"
             alt="external-wishlist-black-friday-5-sbts2018-outline-sbts2018"
           />
+          <p className="wishLength">{userWishList.length}</p>
           <img
             width="40"
             height="40"

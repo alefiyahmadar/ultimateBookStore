@@ -14,26 +14,33 @@ export const ProductCard = (item) => {
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
-    <div
-      onClick={() => navigate(`/individual/${_id}`)}
-      key={_id}
-      className="product-card"
-    >
+    <div key={_id} className="product-card">
       <span className="heartSpan">
         <button
-          onClick={
-            isWished ? () => RemoveWishBtn(item) : () => AddToWishlistBtn(item)
-          }
           className="heart-button"
+          onClick={
+            JSON.parse(localStorage.getItem("user")).wishlist.find(
+              (e) => e.title === title
+            )
+              ? () => RemoveWishBtn(item)
+              : () => AddToWishlistBtn(item)
+          }
           style={{
-            opacity: currentUser.wishlist.find((e) => e.title === title)
+            opacity: JSON.parse(localStorage.getItem("user")).wishlist.find(
+              (e) => e.title === title
+            )
               ? "1"
               : "0.4",
           }}
         ></button>
       </span>
 
-      <img className="product-img" src={image} alt=""></img>
+      <img
+        onClick={() => navigate(`/individual/${_id}`)}
+        className="product-img"
+        src={image}
+        alt=""
+      ></img>
 
       <h3 className="item-title">{title} </h3>
       <p className="rating">
@@ -53,10 +60,18 @@ export const ProductCard = (item) => {
       <button
         className="Cartbtn"
         onClick={
-          isAddedToCart ? () => RemoveCartBtn(item) : () => AddToCartBtn(item)
+          JSON.parse(localStorage.getItem("user")).cart.find(
+            (e) => e.title === title
+          )
+            ? () => RemoveCartBtn(item)
+            : () => AddToCartBtn(item)
         }
       >
-        {isAddedToCart ? "Remove From Cart" : "Add To Cart"}
+        {JSON.parse(localStorage.getItem("user")).cart.find(
+          (e) => e.title === title
+        )
+          ? "Remove From Cart"
+          : "Add To Cart"}
       </button>
     </div>
   );
