@@ -9,21 +9,31 @@ import { useContext } from "react";
 import { AppContext } from "./contextProvider";
 
 export default function App() {
-  const { isSidebarOpen, setIsSidebarOpen, toggleSidebar, RemoveCartBtn } =
-    useContext(AppContext);
+  const {
+    isSidebarOpen,
+    toggleSidebarCart,
+
+    toggleSidebarWish,
+    isCartOpen,
+    RemoveCartBtn,
+    RemoveWishBtn,
+    AddToCartBtn,
+  } = useContext(AppContext);
 
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
   const userWishList = JSON.parse(localStorage.getItem("user")).wishlist;
 
   return (
     <div className="App">
-      {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
+      {isSidebarOpen && (
+        <div className="overlay" onClick={toggleSidebarCart}></div>
+      )}
       <nav className="nav">
         <h3>BookStore</h3>
         <span>
           <img
             className="cart-button"
-            onClick={toggleSidebar}
+            onClick={toggleSidebarCart}
             width="40"
             height="40"
             src="https://img.icons8.com/pastel-glyph/64/5fa052/shopping-cart--v2.png"
@@ -31,6 +41,7 @@ export default function App() {
           />
           <p className="cartLength">{userCart.length}</p>
           <img
+            onClick={toggleSidebarWish}
             width="40"
             height="40"
             src="https://img.icons8.com/external-sbts2018-outline-sbts2018/58/5fa052/external-wishlist-black-friday-5-sbts2018-outline-sbts2018.png"
@@ -46,9 +57,9 @@ export default function App() {
         </span>
       </nav>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
-        <div>
-          <p>cart</p>
-          <button className="close-button" onClick={toggleSidebar}>
+        <div style={{ display: isCartOpen ? "block" : "none" }}>
+          <p>Cart</p>
+          <button className="close-button" onClick={toggleSidebarCart}>
             X
           </button>
 
@@ -81,6 +92,55 @@ export default function App() {
                     <p>0</p>
                     <button>-</button>
                   </div>
+                </div>
+              </div>
+            ))}
+            <div className="checkoutCart">
+              <p>checkout</p>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: isCartOpen ? "none" : "block" }}>
+          <p>Wishlist</p>
+          <button className="close-button" onClick={toggleSidebarWish}>
+            X
+          </button>
+
+          <hr />
+
+          <div>
+            {JSON.parse(localStorage.getItem("user")).wishlist.map((item) => (
+              <div id={item._id} className="CartContainer">
+                <div className="imgDiv">
+                  <img src={item.image}></img>
+                </div>
+                <div className="detailDiv">
+                  <p className="barTitle">{item.title}</p>
+                  <img
+                    onClick={() => RemoveWishBtn(item)}
+                    className="dustbin"
+                    width="25"
+                    height="25"
+                    src="https://img.icons8.com/ios/50/delete--v1.png"
+                    alt="delete--v1"
+                  />
+                  <p>{item.price}</p>
+                  <button
+                    className="wishBtnBar"
+                    onClick={
+                      JSON.parse(localStorage.getItem("user")).cart.find(
+                        (e) => e.title === item.title
+                      )
+                        ? () => RemoveCartBtn(item)
+                        : () => AddToCartBtn(item)
+                    }
+                  >
+                    {JSON.parse(localStorage.getItem("user")).cart.find(
+                      (e) => e.title === item.title
+                    )
+                      ? "Remove From Cart"
+                      : "Add To Cart"}
+                  </button>
                 </div>
               </div>
             ))}

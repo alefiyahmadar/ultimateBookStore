@@ -27,11 +27,16 @@ export const AppContextProvider = ({ children }) => {
 
   const [usersArray, setUserArray] = useState(users);
   const [user, setUser] = useState();
+  const [isCartOpen, setCartOpen] = useState();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = (e) => {
+  const toggleSidebarCart = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    console.log(e.target.value);
+    setCartOpen(true);
+  };
+  const toggleSidebarWish = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setCartOpen(false);
   };
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -210,7 +215,9 @@ export const AppContextProvider = ({ children }) => {
         setUser,
         isSidebarOpen,
         setIsSidebarOpen,
-        toggleSidebar,
+        toggleSidebarCart,
+        isCartOpen,
+        toggleSidebarWish,
       }}
     >
       {children}

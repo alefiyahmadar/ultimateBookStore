@@ -108,9 +108,9 @@ body {
   }
   .cartLength {
     position: absolute;
-    right: 80%;
-    top: 2%;
-
+    right: 70%;
+    top: 40%;
+    color: #5fa052;
     font-size: 15px;
   }
   .wishLength {
@@ -118,6 +118,7 @@ body {
     right: 35%;
     top: 40%;
     font-size: 15px;
+    color: #5fa052;
   }
 
   .categoryContiner {
@@ -442,5 +443,26 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 0.5rem;
+  }
+  .wishBtnBar {
+    width: 40%;
+    margin-top: 3%;
+    background-color: beige;
+    border: 1px solid #5fa052;
+    padding: 0.3rem;
+    font-size: 15px;
+    border-radius: 0.5rem;
+  }
+  .wishBtnBar:hover {
+    background-color: #5fa052;
+    color: white;
+  }
+  .checkoutCart {
+    border: 1px solid blue;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 99%;
+    display: none;
   }
 }
