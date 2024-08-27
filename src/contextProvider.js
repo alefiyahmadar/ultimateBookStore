@@ -27,6 +27,12 @@ export const AppContextProvider = ({ children }) => {
 
   const [usersArray, setUserArray] = useState(users);
   const [user, setUser] = useState();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = (e) => {
+    setIsSidebarOpen(!isSidebarOpen);
+    console.log(e.target.value);
+  };
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const userArrayStored = JSON.parse(localStorage.getItem("usersArray"));
@@ -202,6 +208,9 @@ export const AppContextProvider = ({ children }) => {
         RemoveWishBtn,
         user,
         setUser,
+        isSidebarOpen,
+        setIsSidebarOpen,
+        toggleSidebar,
       }}
     >
       {children}
