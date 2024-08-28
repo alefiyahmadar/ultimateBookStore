@@ -10,19 +10,20 @@ export const HomePage = () => {
     navigate("/product");
   };
   return (
-    <div>
-      {category.map(({ categoryName, description, _id, image }) => (
-        <div
-          className="categoryContiner"
-          id={_id}
-          style={{ display: "inline-block", padding: "1rem" }}
-        >
-          <img onClick={() => CategoryHandler(categoryName)} src={image}></img>
-          <p>{categoryName}</p>
+    <div className="homeContainer">
+      <div className="homeMain">
+        <div className="image-container">
+          <div className="home-bg"></div>
         </div>
-      ))}
-
-      <button onClick={() => navigate("/Product")}>Store</button>
+      </div>
+      <div className="categoryContiner">
+        {category.map(({ categoryName, description, _id, image }) => (
+          <div id={_id} onClick={() => CategoryHandler(categoryName)}>
+            <img src={image}></img>
+            <p>{categoryName}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

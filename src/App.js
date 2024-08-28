@@ -1,5 +1,5 @@
 import "./styles.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { HomePage } from "./pages/HomePg";
 import { PoductListPg } from "./pages/ProdList";
 import { SignUpPg } from "./pages/SignUp";
@@ -23,14 +23,14 @@ export default function App() {
 
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
   const userWishList = JSON.parse(localStorage.getItem("user")).wishlist;
-
+  const navigate = useNavigate();
   return (
     <div className="App">
       {isSidebarOpen && (
         <div className="overlay" onClick={toggleSidebarCart}></div>
       )}
       <nav className="nav">
-        <h3>BookStore</h3>
+        <h3 onClick={() => navigate("/product")}>BookStore</h3>
         <span>
           <img
             className="cart-button"

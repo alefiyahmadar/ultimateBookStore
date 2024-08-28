@@ -91,9 +91,10 @@ body {
     margin: 0;
     display: flex;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 550;
     color: #5fa052;
-    margin-left: 2rem;
+    margin-left: 3rem;
+    cursor: pointer;
   }
   .nav span {
     margin: 0%;
@@ -122,7 +123,25 @@ body {
   }
 
   .categoryContiner {
-    margin-top: 4rem;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  .categoryContiner div {
+    border: 1px solid black;
+    width: 40%;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    background-color: white;
+    border: 2px solid #5fa052;
+    font-size: 20px;
+  }
+  .categoryContiner div:hover {
+    background-color: beige;
   }
   .homePgContainer {
     margin-top: 3rem;
@@ -524,5 +543,31 @@ body {
   }
   .checkoutCart button:hover {
     background-color: #518945;
+  }
+  .homeContainer {
+    padding-top: 4rem;
+  }
+  .homeMain {
+    display: flex;
+    width: 100%;
+    margin: auto;
+  }
+
+  .image-container {
+    margin: auto;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .home-bg {
+    background: url("https://img.freepik.com/premium-psd/high-angle-book-mock-up-with-glasses-coffee_23-2148657172.jpg?w=900");
+    width: 70%;
+    margin: auto;
+
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: white;
   }
 }
