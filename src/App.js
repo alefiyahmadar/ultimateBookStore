@@ -18,6 +18,7 @@ export default function App() {
     RemoveCartBtn,
     RemoveWishBtn,
     AddToCartBtn,
+    QtyHandler,
   } = useContext(AppContext);
 
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
@@ -88,16 +89,48 @@ export default function App() {
                   />
                   <p>{item.price}</p>
                   <div className="Qtspan">
-                    <button>+</button>
+                    <button onClick={() => QtyHandler(item)}>+</button>
                     <p>0</p>
                     <button>-</button>
                   </div>
                 </div>
               </div>
             ))}
-            <div className="checkoutCart">
-              <p>checkout</p>
-            </div>
+          </div>
+          <div className="checkoutCart">
+            <p
+              style={{
+                display:
+                  JSON.parse(localStorage.getItem("user")).cart.length > 0
+                    ? "none"
+                    : "block",
+              }}
+            >
+              Cart is empty!
+            </p>
+            <p
+              style={{
+                paddingLeft: "2%",
+                marginBottom: "2%",
+                paddingTop: "1%",
+                display:
+                  JSON.parse(localStorage.getItem("user")).cart.length > 0
+                    ? "block"
+                    : "none",
+              }}
+            >
+              Shipping & taxes calculated at checkout
+            </p>
+            <button
+              style={{
+                display:
+                  JSON.parse(localStorage.getItem("user")).cart.length > 0
+                    ? "block"
+                    : "none",
+              }}
+            >
+              Checkout
+            </button>
           </div>
         </div>
         <div style={{ display: isCartOpen ? "none" : "block" }}>

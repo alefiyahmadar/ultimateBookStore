@@ -194,10 +194,10 @@ body {
     padding-top: 7rem;
   }
   .SignUpContainer div {
-    border: 1px solid black;
     margin: auto;
     width: 25rem;
-    height: 60vh;
+
+    box-shadow: 0px 4px 8px #5fa052;
   }
   .SignUpContainer span {
     display: flex;
@@ -205,27 +205,58 @@ body {
     width: 20rem;
     margin: auto;
   }
+  .SignUpContainer h3 {
+    font-weight: 500;
+    color: #518945;
+    font-size: 23px;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+  }
+  .SignUpContainer h4 {
+    font-size: 16px;
+    font-weight: 500;
+  }
   .SignUpContainer input {
     margin-bottom: 0.5rem;
     padding: 0.2rem;
+    outline: none;
   }
   .SignUpContainer button {
-    width: 40%;
+    width: 50%;
     margin: auto;
-    padding: 0.2rem;
-    font-size: 12px;
+    padding: 0.3rem;
+    font-size: 15px;
+    margin-top: 1rem;
+    background-color: #5fa052;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+  }
+  .SignUpContainer button:hover {
+    background-color: #518945;
   }
   .SignUpContainer span p {
     font-size: 15px;
+    padding-bottom: 1rem;
   }
   .loginContainer {
     padding-top: 7rem;
   }
   .loginContainer div {
-    border: 1px solid black;
+    box-shadow: 0px 4px 8px #5fa052;
     margin: auto;
     width: 25rem;
-    height: 60vh;
+  }
+  .loginContainer h3 {
+    font-weight: 500;
+    color: #518945;
+    font-size: 23px;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+  }
+  .loginContainer h4 {
+    font-size: 16px;
+    font-weight: 500;
   }
   .loginContainer span {
     display: flex;
@@ -237,15 +268,36 @@ body {
     margin-bottom: 0.5rem;
     padding: 0.2rem;
   }
-  .loginContainer button {
+  .loginContainer p {
+    padding: 1rem;
+  }
+  .LoginBtn {
     width: 40%;
     margin: auto;
     padding: 0.2rem;
-    font-size: 12px;
+    font-size: 15px;
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    background-color: #5fa052;
+    border: none;
+    color: white;
+  }
+  .LoginBtn:hover {
+    background-color: #518945;
   }
   .guestBtn {
     background-color: white;
+    width: 40%;
+    padding: 0.2rem;
+    margin: auto;
+    border-radius: 0.5rem;
+    border: 1px solid #5fa052;
+    font-size: 15px;
+  }
+  .guestBtn:hover {
+    background-color: #518945;
+    color: white;
   }
   .ProdDetailContainer {
     padding-top: 4rem;
@@ -458,11 +510,19 @@ body {
     color: white;
   }
   .checkoutCart {
-    border: 1px solid blue;
-    position: fixed;
+    background-color: beige;
+    position: sticky;
     bottom: 0;
-    left: 0;
-    width: 99%;
-    display: none;
+  }
+  .checkoutCart button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 18px;
+    background-color: #5fa052;
+    border: none;
+    color: beige;
+  }
+  .checkoutCart button:hover {
+    background-color: #518945;
   }
 }

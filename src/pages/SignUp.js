@@ -40,7 +40,8 @@ export const SignUpPg = () => {
     <div className="SignUpContainer">
       <div>
         <span>
-          <h3>SignUp</h3>
+          <h3>BookStore</h3>
+          <h4>SignUp</h4>
           <input
             placeholder="FirstName"
             onChange={(e) =>
@@ -63,10 +64,9 @@ export const SignUpPg = () => {
               setNewUser({ ...NewUser, password: e.target.value })
             }
           />
-          <button onClick={SignUpHandler}>SignUp</button>
+          <button onClick={SignUpHandler}>Sign Up</button>
           <p>
-            Already have an account?{" "}
-            <NavLink onClick={() => navigate("/login")}>Login</NavLink>
+            Already have an account? <NavLink to={"/login"}>Login</NavLink>
           </p>
         </span>
       </div>

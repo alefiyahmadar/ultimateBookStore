@@ -6,14 +6,14 @@ export const LoginPage = () => {
     <div className="loginContainer">
       <div>
         <span>
-          <h3>Login</h3>
+          <h3>BookStore</h3>
+          <h4>Login</h4>
           <input placeholder="Username" />
           <input placeholder="Password" />
-          <button>Login</button>
+          <button className="LoginBtn">Login</button>
           <button className="guestBtn">Login as guest</button>
           <p>
-            Dont have an account?{" "}
-            <NavLink onClick={() => navigate("/signup")}>SignUp</NavLink>
+            Dont have an account? <NavLink to={"/signup"}>SignUp</NavLink>
           </p>
         </span>
       </div>

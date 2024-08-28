@@ -68,7 +68,7 @@ export const products = [
     isAddedToCart: false,
     isWished: false,
     image: "https://m.media-amazon.com/images/I/81b1PP4RK1L._AC_UY218_.jpg",
-    rating: 4.7,
+    rating: 5,
     quantity: 1,
     language: "English",
   },

@@ -188,7 +188,23 @@ export const AppContextProvider = ({ children }) => {
     );
     localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
+  const QtyHandler = (item) => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const userArrData = JSON.parse(localStorage.getItem("usersArray"));
 
+    setProduct((prevItem) =>
+      prevItem.map((e) =>
+        e.title === item.title ? { ...e, quantity: (e.quantity = +1) } : e
+      )
+    );
+
+    const updatedUser = {
+      ...userData,
+      cart: userData.cart.map((e) =>
+        e.title === item.title ? { ...e, quantity: e.quantity + 1 } : e
+      ),
+    };
+  };
   return (
     <AppContext.Provider
       value={{
@@ -218,6 +234,7 @@ export const AppContextProvider = ({ children }) => {
         toggleSidebarCart,
         isCartOpen,
         toggleSidebarWish,
+        QtyHandler,
       }}
     >
       {children}
