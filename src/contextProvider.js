@@ -29,6 +29,20 @@ export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [isCartOpen, setCartOpen] = useState();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [getId, setId] = useState(0);
+  const [AdressArr, setAdressArr] = useState([
+    {
+      id: 0,
+      firstname: "Adarsh",
+      lastname: "Balika",
+      house: "301, Luxera Apt",
+      city: "Mumbai",
+      state: "Maharashtra",
+      country: "India",
+      pincode: "2012203",
+      number: "9726349227",
+    },
+  ]);
 
   const toggleSidebarCart = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -235,6 +249,10 @@ export const AppContextProvider = ({ children }) => {
         isCartOpen,
         toggleSidebarWish,
         QtyHandler,
+        AdressArr,
+        setAdressArr,
+        getId,
+        setId,
       }}
     >
       {children}

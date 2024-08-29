@@ -123,7 +123,7 @@ body {
   }
 
   .categoryContiner {
-    width: 90%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -133,7 +133,8 @@ body {
   }
   .categoryContiner div {
     border: 1px solid black;
-    width: 40%;
+    border-radius: 50%;
+    width: 20%;
     padding: 0.5rem;
     margin-left: 0.5rem;
     background-color: white;
@@ -146,6 +147,32 @@ body {
   .homePgContainer {
     margin-top: 3rem;
   }
+  .homeContainer footer {
+    background-color: beige;
+    height: 45vh;
+  }
+  .footerUl {
+    display: flex;
+    justify-content: space-around;
+  }
+  .footerUl div {
+    padding: 1rem;
+    text-align: left;
+  }
+  .footerUl h3 {
+    color: #5fa052;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+  }
+  .footerUl h4 {
+    margin-top: 0.5%;
+    font-weight: 500;
+    margin-block: 1%;
+  }
+  .about p {
+    margin-block: 5%;
+  }
+
   .productGrid {
     margin-top: 4rem;
   }
@@ -569,5 +596,82 @@ body {
     background-position: center;
 
     color: white;
+  }
+  .userContainer {
+    padding-top: 7rem;
+  }
+  .userChild {
+    width: 35rem;
+    margin: auto;
+  }
+  .userChild button {
+    width: 50%;
+  }
+  .toggleUser {
+    border: none;
+    background-color: #5fa052;
+    color: white;
+    font-size: 16px;
+    padding: 0.3rem;
+  }
+  .toggleUser:hover {
+    background-color: #518945;
+  }
+  .ProfileUser {
+    text-align: left;
+    padding: 1rem;
+  }
+  .ProfileUser button {
+    width: 30%;
+    color: red;
+    background-color: white;
+    font-weight: 550;
+
+    padding: 0.3rem;
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    font-size: 15px;
+  }
+  .ProfileUser button:hover {
+    background-color: red;
+    color: white;
+  }
+  .AdressDiv {
+    margin: auto;
+  }
+  .AdressDiv div {
+    width: 20rem;
+    margin: auto;
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid gray;
+  }
+  .AddAdBtn {
+    margin: auto;
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 550;
+    cursor: pointer;
+    text-align: left;
+  }
+  .deleteBtn {
+    border: 1px solid red;
+    background-color: white;
+    padding: 0.3rem;
+    color: red;
+    border-radius: 0.5rem;
+  }
+  .deleteBtn:hover {
+    background-color: red;
+    color: white;
+  }
+  .newAdress {
+    margin: auto;
+    padding: 1rem;
+  }
+  .newAdress input {
+    margin-bottom: 0.5rem;
   }
 }

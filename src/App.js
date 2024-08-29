@@ -7,6 +7,7 @@ import { LoginPage } from "./pages/LoginPg";
 import { PoductDetail } from "./pages/productDetailPg";
 import { useContext } from "react";
 import { AppContext } from "./contextProvider";
+import { UserPage } from "./pages/userPg";
 
 export default function App() {
   const {
@@ -50,6 +51,7 @@ export default function App() {
           />
           <p className="wishLength">{userWishList.length}</p>
           <img
+            onClick={() => navigate("/user")}
             width="40"
             height="40"
             src="https://img.icons8.com/pastel-glyph/40/5fa052/user-male-circle.png"
@@ -187,6 +189,7 @@ export default function App() {
         <Route path="/signup" element={<SignUpPg />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/individual/:prodId" element={<PoductDetail />}></Route>
+        <Route path="/user" element={<UserPage />}></Route>
       </Routes>
     </div>
   );
