@@ -89,10 +89,17 @@ export default function App() {
                     src="https://img.icons8.com/ios/50/delete--v1.png"
                     alt="delete--v1"
                   />
-                  <p>{item.price}</p>
+                  <p>
+                    ₹{item.price - 50}{" "}
+                    <span
+                      style={{ color: "grey", textDecoration: "line-through" }}
+                    >
+                      ₹{item.price}
+                    </span>
+                  </p>
                   <div className="Qtspan">
                     <button onClick={() => QtyHandler(item)}>+</button>
-                    <p>0</p>
+                    <p>{item.quantity}</p>
                     <button>-</button>
                   </div>
                 </div>
@@ -159,7 +166,14 @@ export default function App() {
                     src="https://img.icons8.com/ios/50/delete--v1.png"
                     alt="delete--v1"
                   />
-                  <p>{item.price}</p>
+                  <p>
+                    ₹{item.price - 50}{" "}
+                    <span
+                      style={{ color: "grey", textDecoration: "line-through" }}
+                    >
+                      ₹{item.price}
+                    </span>
+                  </p>
                   <button
                     className="wishBtnBar"
                     onClick={

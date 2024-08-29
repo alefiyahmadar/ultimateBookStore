@@ -208,7 +208,7 @@ export const AppContextProvider = ({ children }) => {
 
     setProduct((prevItem) =>
       prevItem.map((e) =>
-        e.title === item.title ? { ...e, quantity: (e.quantity = +1) } : e
+        e.title === item.title ? { ...e, quantity: e.quantity + 1 } : e
       )
     );
 
@@ -218,6 +218,20 @@ export const AppContextProvider = ({ children }) => {
         e.title === item.title ? { ...e, quantity: e.quantity + 1 } : e
       ),
     };
+
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+    const updateArr = userArrData.map((e) => {
+      if (e.email === userData.email && e.password === userData.password) {
+        return {
+          ...e,
+          cart: e.cart.map((u) =>
+            u.title === item.title ? { ...u, quantity: u.quantity + 1 } : u
+          ),
+        };
+      }
+    });
+    console.log(updateArr);
+    localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
   return (
     <AppContext.Provider
