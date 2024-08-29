@@ -20,6 +20,7 @@ export default function App() {
     RemoveWishBtn,
     AddToCartBtn,
     QtyHandler,
+    DecQtyHandler,
   } = useContext(AppContext);
 
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
@@ -100,7 +101,7 @@ export default function App() {
                   <div className="Qtspan">
                     <button onClick={() => QtyHandler(item)}>+</button>
                     <p>{item.quantity}</p>
-                    <button>-</button>
+                    <button onClick={() => DecQtyHandler(item)}>-</button>
                   </div>
                 </div>
               </div>

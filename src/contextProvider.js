@@ -233,6 +233,38 @@ export const AppContextProvider = ({ children }) => {
     console.log(updateArr);
     localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
+
+  const DecQtyHandler = (item) => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const userArrData = JSON.parse(localStorage.getItem("usersArray"));
+
+    setProduct((prevItem) =>
+      prevItem.map((e) =>
+        e.title === item.title ? { ...e, quantity: e.quantity - 1 } : e
+      )
+    );
+
+    const updatedUser = {
+      ...userData,
+      cart: userData.cart.map((e) =>
+        e.title === item.title ? { ...e, quantity: e.quantity - 1 } : e
+      ),
+    };
+
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+    const updateArr = userArrData.map((e) => {
+      if (e.email === userData.email && e.password === userData.password) {
+        return {
+          ...e,
+          cart: e.cart.map((u) =>
+            u.title === item.title ? { ...u, quantity: u.quantity - 1 } : u
+          ),
+        };
+      }
+    });
+    console.log(updateArr);
+    localStorage.setItem("usersArray", JSON.stringify(updateArr));
+  };
   return (
     <AppContext.Provider
       value={{
@@ -267,6 +299,7 @@ export const AppContextProvider = ({ children }) => {
         setAdressArr,
         getId,
         setId,
+        DecQtyHandler,
       }}
     >
       {children}
