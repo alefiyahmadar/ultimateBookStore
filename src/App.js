@@ -21,9 +21,12 @@ export default function App() {
     AddToCartBtn,
     QtyHandler,
     DecQtyHandler,
+    toggleSidebar,
+    ToggleFilter,
+    
   } = useContext(AppContext);
-
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
+
   const userWishList = JSON.parse(localStorage.getItem("user")).wishlist;
   const navigate = useNavigate();
   return (
@@ -31,7 +34,12 @@ export default function App() {
       {isSidebarOpen && (
         <div className="overlay" onClick={toggleSidebarCart}></div>
       )}
+      {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
+
       <nav className="nav">
+        
+      <img  onClick={toggleSidebar} style={{ display:window.location.pathname === "/product"  ? "block" :"none",
+        marginLeft:"1rem" , paddingTop:"1rem"}} width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png" alt="menu--v1"/>
         <h3 onClick={() => navigate("/product")}>BookStore</h3>
         <span>
           <img

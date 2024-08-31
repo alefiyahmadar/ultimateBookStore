@@ -28,7 +28,8 @@ export const AppContextProvider = ({ children }) => {
   const [usersArray, setUserArray] = useState(users);
   const [user, setUser] = useState();
   const [isCartOpen, setCartOpen] = useState();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+  const [isFilterOpen , setIsFilterOpen] = useState(false)
   const [getId, setId] = useState(0);
   const [AdressArr, setAdressArr] = useState([
     {
@@ -43,6 +44,11 @@ export const AppContextProvider = ({ children }) => {
       number: "9726349227",
     },
   ]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const toggleSidebarCart = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -52,6 +58,7 @@ export const AppContextProvider = ({ children }) => {
     setIsSidebarOpen(!isSidebarOpen);
     setCartOpen(false);
   };
+
 
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const userArrayStored = JSON.parse(localStorage.getItem("usersArray"));
@@ -295,6 +302,8 @@ export const AppContextProvider = ({ children }) => {
         getId,
         setId,
         DecQtyHandler,
+        toggleSidebar
+      
       }}
     >
       {children}

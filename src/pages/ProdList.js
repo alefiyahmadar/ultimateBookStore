@@ -10,13 +10,18 @@ export const PoductListPg = () => {
     SortHandler,
     GetSortData,
     filters,
+    isSidebarOpen,
+    isFilterOpen,
+    ToggleFilter,
+    toggleSidebar
   } = useContext(AppContext);
 
   return (
     <div>
-      <div className="filterBar">
+      <div className={`filterBar slideFilter  ${isSidebarOpen ? 'open' : ''}`} >
         <ul>
           <p>filter</p>
+          <button className="close-button" onClick={toggleSidebar}>X</button> 
           <p>Category</p>
           <li>
             <input
