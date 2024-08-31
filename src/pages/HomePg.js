@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../contextProvider";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const { category, setCategory, setFilter, filters } = useContext(AppContext);
@@ -38,17 +38,17 @@ export const HomePage = () => {
           <div className="connect">
             <h3>Connect</h3>
 
-            <p onClick={() => navigate("")}>GitHub</p>
+            <p ><NavLink style={{textDecoration:"none"}} to={"https://github.com/alefiyahmadar/"}>GitHub</NavLink></p>
 
-            <p onClick={() => navigate("")}>LinkedIn</p>
+            <p ><NavLink style={{textDecoration:"none"}} to={"https://www.linkedin.com/in/alefiyah-madarwala-16b821259/"}>LinkedIn</NavLink></p>
             <p onClick={() => navigate("")}>Twitter</p>
           </div>
 
           <div className="resources">
             <h3>Resources</h3>
 
-            <p onClick={() => navigate("")}>Sign Up</p>
-            <p onClick={() => navigate("")}>Sign In</p>
+            <p onClick={() => navigate("/signup")}>Sign Up</p>
+            <p onClick={() => navigate("/login")}>Log In</p>
           </div>
         </ul>
       </footer>

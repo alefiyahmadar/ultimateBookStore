@@ -37,24 +37,24 @@ export default function App() {
           <img
             className="cart-button"
             onClick={toggleSidebarCart}
-            width="40"
-            height="40"
+            width={window.innerWidth > 425 ?"40":"30"}
+            height={window.innerWidth > 425 ?"40":"30"}
             src="https://img.icons8.com/pastel-glyph/64/5fa052/shopping-cart--v2.png"
             alt="shopping-cart--v2"
           />
           <p className="cartLength">{userCart.length}</p>
           <img
             onClick={toggleSidebarWish}
-            width="40"
-            height="40"
+            width={window.innerWidth > 425 ?"40":"30"}
+            height={window.innerWidth > 425 ?"40":"30"}
             src="https://img.icons8.com/external-sbts2018-outline-sbts2018/58/5fa052/external-wishlist-black-friday-5-sbts2018-outline-sbts2018.png"
             alt="external-wishlist-black-friday-5-sbts2018-outline-sbts2018"
           />
           <p className="wishLength">{userWishList.length}</p>
           <img
             onClick={() => navigate("/user")}
-            width="40"
-            height="40"
+            width={window.innerWidth > 425 ?"40":"30"}
+            height={window.innerWidth > 425 ?"40":"30"}
             src="https://img.icons8.com/pastel-glyph/40/5fa052/user-male-circle.png"
             alt="user-male-circle"
           />

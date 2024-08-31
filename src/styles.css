@@ -77,6 +77,47 @@ body {
   background-color: #5fa052;
   color: white;
 }
+@media only screen and (max-width: 425px){
+
+  .nav{
+    background-color: beige;
+    display: flex;
+  }
+  .nav h3{
+
+    color: #5fa052;
+    margin-left: 1rem;
+  }
+  .nav span{
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+
+  
+  }
+  .nav span img {
+    
+    padding: 0.5rem;
+    
+  }
+  .cartLength {
+    position: absolute;
+  right: 70%;
+  top: 30%;
+    color: #5fa052;
+    font-size: 12px;
+  }
+  .wishLength {
+    position: absolute;
+    right: 35%;
+    top: 30%;
+    font-size: 12px;
+    color: #5fa052;
+  }
+
+
+}
 
 @media only screen and (min-width: 425px) {
   .nav {

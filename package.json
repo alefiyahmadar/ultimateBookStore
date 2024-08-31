@@ -5,16 +5,15 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "6.26.1",
-    "react-scripts": "^5.0.0",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.4.4",
-    "uuid": "10.0.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "uuid": "10.0.0"
   },
   "devDependencies": {
-    
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.15",
     "loader-utils": "3.2.1"
