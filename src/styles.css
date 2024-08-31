@@ -77,7 +77,7 @@ body {
   background-color: #5fa052;
   color: white;
 }
-@media only screen and (max-width: 425px){
+@media only screen and (max-width: 430px){
 
   .nav{
     background-color: beige;
@@ -99,18 +99,19 @@ body {
   .nav span img {
     
     padding: 0.5rem;
+    margin-right: 0.3rem;
     
   }
   .cartLength {
     position: absolute;
-  right: 70%;
+  right: 75%;
   top: 30%;
     color: #5fa052;
     font-size: 12px;
   }
   .wishLength {
     position: absolute;
-    right: 35%;
+    right: 39%;
     top: 30%;
     font-size: 12px;
     color: #5fa052;
