@@ -24,12 +24,21 @@ export const PoductDetail = () => {
           <div style={{}}>
             <img src={getProduct.image} alt=""></img>
           </div>
-          <div style={{}}>
+          <div className="DetailBarDiv">
             <span className="detailBar">
               <h3>{getProduct.title}</h3>
               <h4>{getProduct.author}</h4>
               <h5 className="ratingD">{getProduct.rating}⭐</h5>
-              <h5>₹{getProduct.price}</h5>
+          
+              <h5>
+                    ₹{getProduct.price - 50}{" "}
+                    <span
+                      style={{ color: "grey", textDecoration: "line-through" }}
+                    >
+                      ₹{getProduct.price}
+                    </span>
+                  </h5>
+
               <p style={{ display: "flex", color: "gray" }}>
                 <span style={{ fontSize: "10px" }} role="img" aria-label="">
                   ⚡

@@ -1,5 +1,5 @@
 import "./styles.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate , NavLink } from "react-router-dom";
 import { HomePage } from "./pages/HomePg";
 import { PoductListPg } from "./pages/ProdList";
 import { SignUpPg } from "./pages/SignUp";
@@ -206,6 +206,35 @@ export default function App() {
         <Route path="/individual/:prodId" element={<PoductDetail />}></Route>
         <Route path="/user" element={<UserPage />}></Route>
       </Routes>
+
+      <footer style={{display:window.location.pathname === "/product" ? "none" :"flex"}}>
+        <ul className="footerUl">
+          <div className="about">
+            <h3>LiteraryLinx</h3>
+
+            <h4>Books are a uniquely portable magic!</h4>
+
+            <p>Privacy Policy</p>
+            <p>Terms of use</p>
+            <p>@2022 LiteraryLinx</p>
+          </div>
+          <div className="connect">
+            <h3>Connect</h3>
+
+            <p ><NavLink style={{textDecoration:"none"}} to={"https://github.com/alefiyahmadar/"}>GitHub</NavLink></p>
+
+            <p ><NavLink style={{textDecoration:"none"}} to={"https://www.linkedin.com/in/alefiyah-madarwala-16b821259/"}>LinkedIn</NavLink></p>
+            <p onClick={() => navigate("")}>Twitter</p>
+          </div>
+
+          <div className="resources">
+            <h3>Resources</h3>
+
+            <p onClick={() => navigate("/signup")}>Sign Up</p>
+            <p onClick={() => navigate("/login")}>Log In</p>
+          </div>
+        </ul>
+      </footer>
     </div>
   );
 }

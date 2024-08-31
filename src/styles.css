@@ -8,64 +8,10 @@ body {
   margin: 0%;
   padding: 0%;
 }
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 80%;
-  float: right;
-  padding: 1rem;
-}
 
-.product-card {
-  border: 1px solid #ddd;
 
-  padding-top: 4%;
-  margin-left: 2rem;
 
-  text-align: center;
-  width: 20rem;
 
-  margin-bottom: 4rem;
-}
-
-.heart-button {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border: none;
-  position: relative;
-  transform: rotate(45deg);
-  cursor: pointer;
-  outline: none;
-  margin-bottom: 1rem;
-  display: flex;
-  margin-left: 1rem;
-}
-
-.heart-button:before,
-.heart-button:after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-}
-.heart-button:before {
-  top: -10px;
-  left: 0;
-}
-
-.heart-button:after {
-  top: 0;
-  left: -10px;
-}
-.product-img {
-  width: 150px;
-  height: 200px;
-  object-fit: contain;
-  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
-}
 .Cartbtn {
   width: 100%;
   padding: 1rem;
@@ -116,11 +62,233 @@ body {
     font-size: 12px;
     color: #5fa052;
   }
+  
+  .homeMain {
+    display: flex;
+    width: 100%;
+    margin: auto;
+  }
+
+  .image-container {
+    margin: auto;
+    width: 100%;
+    
+  }
+  .home-bg {
+    background: url("https://img.freepik.com/premium-psd/high-angle-book-mock-up-with-glasses-coffee_23-2148657172.jpg?w=900");
+    width: 100%;
+    margin: auto;
+
+    height: 30vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: white;
+  }
+  .categoryContiner{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  footer{
+    display: flex;
+    background-color: beige;
+    margin-bottom: 0;
+    text-align: left;
+position: absolute;
+width: 100%;
+  }
+  .footerUl{
+    display: flex;
+    justify-content: space-around;
+  width: 100%;
+  }
+  .footerUl div{
+
+  width: 100%;
+  }
+  .footerUl h3{
+    font-size: 12px;
+    color: #5fa052;
+  }
+  .footerUl h4{
+    font-size: 10px;
+    
+  }
+  .footerUl p{
+    font-size: 10px;
+  }
+  .about h4{
+  display: none;
+  }
+  
+.categoryContiner img{
+  width: 2rem;
+}
+.filterBar{
+  display: none;
+}
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  padding: 1rem;
+  margin: auto;
+  
+}
+
+.product-card {
+  border: 1px solid #ddd;
+
+  padding-top: 4%;
+
+
+  text-align: center;
+
+margin-left: 1rem;
+
+  margin-bottom: 2rem;
+}
+.product-img {
+  width: 100px;
+  height: 150px;
+  object-fit: contain;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.heart-button {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border: none;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  outline: none;
+
+  display: flex;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
 
 }
 
-@media only screen and (min-width: 425px) {
+.heart-button:before,
+.heart-button:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart-button:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart-button:after {
+  top: 0;
+  left: -10px;
+}
+.product-card h3{
+  font-size: 15px;
+}
+.product-card h4{
+
+  font-size: 12px;
+}
+.item-price{
+
+  font-size: 12px;
+}
+.rating{
+  font-size: 10px;
+}
+.Cartbtn{
+
+  font-size: 12px;
+  padding: 0.5rem;
+  background-color: #5fa052;
+  color: white;
+}
+.ProdDetailDiv div{
+  padding: 0.5rem;
+}
+.ProdDetailDiv img{
+width: 10rem;
+margin-top: 1rem;
+box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.DetailBarDiv{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.detailBar{
+  
+
+  text-align: left;
+
+
+}
+.detailBar h3{
+font-size:18px ;
+margin-bottom: 0.5rem;
+
+}
+.detailBar h4{
+  font-size: 15px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+}
+.detailBar h5{
+
+  
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.detailBar p{
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: gray;
+  font-size: 12px;
+}
+.detailBar p span{
+  color: black;
+}
+.CartbtnDetail{
+
+  width: 50%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+  background-color: white;
+  border: 1px solid #5fa052;
+}
+.WishbtnDetail{
+  width: 50%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem;
+  background-color: white;
+  border: 1px solid #5fa052;
+}
+
+.CartbtnDetail:active{
+  
+  
+  background-color: #5fa052;
+  
+}
+.WishbtnDetail:active{
+  background-color: #5fa052;
+}
+}
+
+@media only screen and (min-width: 430px) {
   .nav {
     background-color: beige;
     padding: 1.1rem;
@@ -163,7 +331,63 @@ body {
     font-size: 15px;
     color: #5fa052;
   }
-
+  .productGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+    float: right;
+    padding: 1rem;
+  }
+  
+  .product-card {
+    border: 1px solid #ddd;
+  
+    padding-top: 4%;
+    margin-left: 2rem;
+  
+    text-align: center;
+    width: 20rem;
+  
+    margin-bottom: 4rem;
+  }
+  .product-img {
+    width: 150px;
+    height: 200px;
+    object-fit: contain;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  .heart-button {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border: none;
+    position: relative;
+    transform: rotate(45deg);
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 1rem;
+    display: flex;
+    margin-left: 1rem;
+  }
+  
+  .heart-button:before,
+  .heart-button:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+  }
+  .heart-button:before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart-button:after {
+    top: 0;
+    left: -10px;
+  }
   .categoryContiner {
     width: 50%;
     display: flex;
@@ -189,17 +413,30 @@ body {
   .homePgContainer {
     margin-top: 3rem;
   }
-  .homeContainer footer {
+  
+  footer{
     background-color: beige;
-    height: 45vh;
+    display: flex;
+    padding-left: 2rem;
   }
   .footerUl {
     display: flex;
     justify-content: space-around;
+    
   }
   .footerUl div {
     padding: 1rem;
     text-align: left;
+    
+    
+  }
+  .connect{
+  margin-left: 5rem;
+  
+  }
+  .resources{
+margin-left: 5rem;
+    
   }
   .footerUl h3 {
     color: #5fa052;
@@ -396,6 +633,7 @@ body {
 
     margin-top: 3rem;
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+    
   }
   .ProdDetailDiv span {
     display: flex;
@@ -645,6 +883,7 @@ body {
   .userChild {
     width: 35rem;
     margin: auto;
+    
   }
   .userChild button {
     width: 50%;
