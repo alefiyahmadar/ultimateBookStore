@@ -28,6 +28,7 @@ export const AppContextProvider = ({ children }) => {
   const [usersArray, setUserArray] = useState(users);
   const [user, setUser] = useState();
   const [isCartOpen, setCartOpen] = useState();
+  const [isLoggedIn , setIsLoggedIn] = useState(false)
   
   
   const [selectedOption, setSelectedOption] = useState('');
@@ -352,7 +353,9 @@ export const AppContextProvider = ({ children }) => {
         setCurrentMessageIndex,
         DiscountMessages,
         isSliding ,
-        setIsSliding
+        setIsSliding,
+        isLoggedIn,
+        setIsLoggedIn
       
       }}
     >

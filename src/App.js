@@ -8,6 +8,7 @@ import { PoductDetail } from "./pages/productDetailPg";
 import { useContext } from "react";
 import { AppContext } from "./contextProvider";
 import { UserPage } from "./pages/userPg";
+import { AuthWrapper } from "./AuthWrapper";
 
 export default function App() {
   const {
@@ -28,7 +29,7 @@ export default function App() {
         useReduce,
         DiscountMessages,
         currentMessageIndex,
-        isSliding
+        isSliding,isLoggedIn , setIsLoggedIn
     
   } = useContext(AppContext);
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
@@ -59,7 +60,7 @@ export default function App() {
             src="https://img.icons8.com/pastel-glyph/64/5fa052/shopping-cart--v2.png"
             alt="shopping-cart--v2"
           />
-          <p className="cartLength">{userCart.length}</p>
+          <p style={{display:isLoggedIn? "block" :"none"}} className="cartLength">{userCart.length}</p>
           <img
             onClick={toggleSidebarWish}
             width={window.innerWidth > 430 ?"40":"30"}
@@ -67,7 +68,7 @@ export default function App() {
             src="https://img.icons8.com/external-sbts2018-outline-sbts2018/58/5fa052/external-wishlist-black-friday-5-sbts2018-outline-sbts2018.png"
             alt="external-wishlist-black-friday-5-sbts2018-outline-sbts2018"
           />
-          <p className="wishLength">{userWishList.length}</p>
+          <p style={{display:isLoggedIn? "block" :"none"}} className="wishLength">{userWishList.length}</p>
           <img
             onClick={() => navigate("/user")}
             width={window.innerWidth > 430 ?"40":"30"}
@@ -79,7 +80,7 @@ export default function App() {
 
         
       </nav>
-      <div className="discount-banner" >
+      <div style={{display:isLoggedIn? "flex" :"none"}} className="discount-banner" >
       <div className={`discount-text ${isSliding ? 'slide-out' : 'slide-in'}`}>
                 {DiscountMessages[currentMessageIndex]}
             </div>
@@ -234,11 +235,11 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/Product" element={<PoductListPg />}></Route>
+        <Route path="/Product" element={isLoggedIn ? <PoductListPg /> :<AuthWrapper><PoductListPg/></AuthWrapper>}></Route>
         <Route path="/signup" element={<SignUpPg />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/individual/:prodId" element={<PoductDetail />}></Route>
-        <Route path="/user" element={<UserPage />}></Route>
+        <Route path="/individual/:prodId" element={ isLoggedIn ?<PoductDetail /> :<AuthWrapper><PoductDetail/></AuthWrapper>}></Route>
+        <Route path="/user" element={ isLoggedIn ? <UserPage />:<AuthWrapper><UserPage/></AuthWrapper>}></Route>
       </Routes>
 
       <footer style={{display:window.location.pathname === "/product" ? "none" :"flex"}}>
@@ -255,9 +256,9 @@ export default function App() {
           <div className="connect">
             <h3>Connect</h3>
 
-            <p ><NavLink style={{textDecoration:"none"}} to={"https://github.com/alefiyahmadar/"}>GitHub</NavLink></p>
+            <p ><NavLink style={{textDecoration:"none" , color:"black"}} to={"https://github.com/alefiyahmadar/"}>GitHub</NavLink></p>
 
-            <p ><NavLink style={{textDecoration:"none"}} to={"https://www.linkedin.com/in/alefiyah-madarwala-16b821259/"}>LinkedIn</NavLink></p>
+            <p ><NavLink style={{textDecoration:"none" , color:"black"}} to={"https://www.linkedin.com/in/alefiyah-madarwala-16b821259/"}>LinkedIn</NavLink></p>
             <p onClick={() => navigate("")}>Twitter</p>
           </div>
 

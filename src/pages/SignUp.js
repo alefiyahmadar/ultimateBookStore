@@ -13,7 +13,7 @@ export const SignUpPg = () => {
     cart: [],
     wishlist: [],
   });
-  const { usersArray, setUserArray, user, setUser } = useContext(AppContext);
+  const { usersArray, setUserArray, user, setUser , isLoggedIn , setIsLoggedIn } = useContext(AppContext);
   const navigate = useNavigate();
 
   const SignUpHandler = () => {
@@ -24,6 +24,8 @@ export const SignUpPg = () => {
 
     localStorage.setItem("usersArray", JSON.stringify(UpdatedArr));
     setUserArray(UpdatedArr);
+    setIsLoggedIn(true)
+
     navigate("/");
   };
 
