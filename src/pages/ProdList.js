@@ -32,7 +32,7 @@ export const PoductListPg = () => {
       <div className={`filterBar slideFilter  ${isSideBarFilter ? 'open' : ''}`} >
         <ul>
           <p>Filter</p>
-          <button style={{display : window.innerWidth > 430 ? "none" :"flex"}} className="close-button" onClick={toggleSidebar}>X</button> 
+          <button style={{display : window.innerWidth > 430 ? "none" :"flex"}} className="Filterclose-button" onClick={toggleSidebar}>X</button> 
           
           <p>Category</p>
           

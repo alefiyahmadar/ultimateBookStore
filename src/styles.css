@@ -311,12 +311,20 @@ margin-bottom: 0.5rem;
 }
 .close-button{
 
-  position: absolute;
+  position: fixed;
   right: 5%;
-  top: 6%;
+  top: 4%;
   font-size: 12px;
   background-color: beige;
   border: none;
+}
+.Filterclose-button{
+
+  background-color:beige;
+  position:fixed;
+  right: 5%;
+  top: 5%;
+border: none;
 }
 
 .slideFilter.open{
@@ -498,6 +506,250 @@ width: 30%;
     width: 8rem;
 
 }
+.userContainer {
+  padding-top: 1rem;
+}
+.userChild {
+  width: 15rem;
+  margin: auto;
+  
+}
+.userChild button {
+  width: 50%;
+}
+.toggleUser {
+  border: none;
+  background-color: #5fa052;
+  color: white;
+  font-size: 14px;
+  padding: 0.3rem;
+}
+.toggleUser:hover {
+  background-color: #518945;
+}
+.ProfileUser {
+  text-align: left;
+  padding: 1rem;
+  width: 100%;
+  
+}
+.ProfileUser p{
+  font-size: 12px;
+}
+.ProfileUser button {
+  width: 30%;
+  color: red;
+  background-color: white;
+  font-weight: 550;
+
+  padding: 0.1rem;
+  border: 1px solid red;
+  border-radius: 0.5rem;
+  font-size: 12px;
+}
+.ProfileUser button:hover {
+  background-color: red;
+  color: white;
+}
+.AdressDiv {
+  margin: auto;
+}
+.AdressDiv div {
+  width: 100%;
+  margin: auto;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid gray;
+  font-size: 12px;
+}
+.AddAdBtn {
+  margin: auto;
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 550;
+  cursor: pointer;
+  text-align: left;
+}
+.deleteBtn {
+  border: 1px solid red;
+  background-color: white;
+  padding: 0.1rem;
+  color: red;
+  border-radius: 0.5rem;
+  font-size: 12px;
+}
+
+.newAdress {
+  margin: auto;
+  padding: 1rem;
+}
+.newAdress input {
+  margin-bottom: 0.5rem;
+}
+.AddAdBtn{
+font-size: 12px;
+margin-bottom: 1rem;
+
+
+}
+.SignUpContainer {
+  padding-top: 1rem;
+}
+.SignUpContainer div {
+  margin: auto;
+  width: 15rem;
+  margin-bottom: 1rem;
+
+  box-shadow: 0px 4px 8px #5fa052;
+}
+.SignUpContainer span {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin: auto;
+}
+.SignUpContainer h3 {
+  font-weight: 600;
+  color: #5fa052;
+  font-size: 16px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+.SignUpContainer h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.SignUpContainer input {
+  margin-bottom: 0.5rem;
+  padding: 0.1rem;
+  outline: none;
+}
+.SignUpContainer button {
+  width: 60%;
+  margin: auto;
+  padding: 0.2rem;
+  font-size: 12px;
+  margin-top: 0.5rem;
+  background-color: #5fa052;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.SignUpContainer span p {
+  font-size: 12px;
+  padding-bottom: 1rem;
+}
+
+.loginContainer {
+  padding-top: 1rem;
+}
+.loginContainer div {
+  box-shadow: 0px 4px 8px #5fa052;
+  margin: auto;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+.loginContainer h3 {
+  font-weight: 600;
+  color: #5fa052;
+  font-size: 16px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+.loginContainer h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.loginContainer span {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin: auto;
+}
+.loginContainer input {
+  margin-bottom: 0.5rem;
+  padding: 0.1rem;
+}
+.loginContainer p {
+  padding: 1rem;
+  font-size: 12px;
+}
+
+
+
+.LoginBtn {
+  width: 60%;
+  margin: auto;
+  padding: 0.2rem;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #5fa052;
+  border: none;
+  color: white;
+}
+
+.guestBtn {
+  background-color: white;
+  width: 60%;
+  padding: 0.2rem;
+  margin: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #5fa052;
+  font-size: 12px;
+}
+.discount-banner {
+  position: absolute;
+  top: 50px; 
+  width: 100%;
+  height: 20px;
+  background-color: #5fa052;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 99;
+  
+}
+
+.discount-text {
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  white-space: nowrap;
+  padding-top: 0.3rem;
+}
+.slide-in {
+  animation: slideInFromLeft 1s forwards;
+}
+
+.slide-out {
+  animation: slideOutToRight 1s forwards;
+}
+
+
+@keyframes slideInFromLeft {
+  from {
+      transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(100%);
+  }
+}
 
 
 
@@ -546,12 +798,60 @@ width: 30%;
     font-size: 15px;
     color: #5fa052;
   }
+  .discount-banner {
+    position: fixed;
+    top: 60px; 
+    width: 100%;
+    height: 30px;
+    background-color: #f8f9fa; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.discount-text {
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    white-space: nowrap;
+    padding-top: 0.5rem;
+}
+
+.slide-in {
+    animation: slideInFromLeft 1s forwards;
+}
+
+.slide-out {
+    animation: slideOutToRight 1s forwards;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
   .productGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 80%;
     float: right;
     padding: 1rem;
+    padding-top: 3rem;
+    
   }
   
   .product-card {
@@ -675,7 +975,7 @@ margin-left: 5rem;
     width: 20%;
     height: 100vh;
     border-right: 1px solid #5fa052;
-    margin-top: 4rem;
+    margin-top: 4.5rem;
   }
   .filterBar ul {
     display: flex;
@@ -854,6 +1154,7 @@ margin-left: 5rem;
 
     margin-top: 3rem;
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
     
   }
   .ProdDetailDiv span {
@@ -1075,7 +1376,7 @@ margin-left: 5rem;
     background-color: #518945;
   }
   .homeContainer {
-    padding-top: 4rem;
+    padding-top: 4.5rem;
   }
   .homeMain {
     display: flex;
@@ -1106,6 +1407,7 @@ margin-left: 5rem;
   .userChild {
     width: 35rem;
     margin: auto;
+    margin-bottom: 2rem;
     
   }
   .userChild button {

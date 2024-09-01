@@ -47,7 +47,18 @@ export const AppContextProvider = ({ children }) => {
   ]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSideBarFilter , setIsSideBarFilter] = useState(false)
+  
+    
 
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+    const [isSliding, setIsSliding] = useState(false);
+
+    const DiscountMessages = [
+      "Buy 3 & Get Extra 10% Off!",
+      "Buy 5 & Get Extra 15% Off!",
+      "Buy 10 or more & Get Extra 25% Off!",
+      "Free shipping on orders over ₹500!"
+  ];
   const toggleSidebar = () => {
     setIsSideBarFilter(!isSideBarFilter);
   };
@@ -72,6 +83,27 @@ export const AppContextProvider = ({ children }) => {
   userArrayStored
     ? localStorage.setItem("usersArray", JSON.stringify(userArrayStored))
     : localStorage.setItem("usersArray", JSON.stringify(usersArray));
+
+
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+          // Start the slide-out animation
+          setIsSliding(true);
+
+          // After the slide-out animation ends, change the message and start slide-in animation
+          setTimeout(() => {
+              setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % DiscountMessages.length);
+              setIsSliding(false);
+          }, 1000); // 1 second for the slide-out animation
+
+      }, 3000); // Change message every 3 seconds
+
+      // Clear the interval when the component unmounts
+      return () => clearInterval(intervalId);
+  }, [DiscountMessages.length]);
+
+
+
 
   const GetCategoryHandler = (event) => {
     const IsSimilar = filters.categoryValue.find(
@@ -271,7 +303,7 @@ export const AppContextProvider = ({ children }) => {
     localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
 
-  const useReduce =  JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
+  const useReduce =  JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + (curr.price-50)  * curr.quantity , 0)
 
   console.log(useReduce)
   return (
@@ -315,7 +347,12 @@ export const AppContextProvider = ({ children }) => {
         setSelectedOption,
         isSideBarFilter,
         setIsSideBarFilter,
-        useReduce
+        useReduce,
+        currentMessageIndex ,
+        setCurrentMessageIndex,
+        DiscountMessages,
+        isSliding ,
+        setIsSliding
       
       }}
     >

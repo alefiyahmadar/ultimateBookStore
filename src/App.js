@@ -25,7 +25,10 @@ export default function App() {
     ToggleFilter,
     isSideBarFilter,
         setIsSideBarFilter,
-        useReduce
+        useReduce,
+        DiscountMessages,
+        currentMessageIndex,
+        isSliding
     
   } = useContext(AppContext);
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
@@ -73,7 +76,14 @@ export default function App() {
             alt="user-male-circle"
           />
         </span>
+
+        
       </nav>
+      <div className="discount-banner" >
+      <div className={`discount-text ${isSliding ? 'slide-out' : 'slide-in'}`}>
+                {DiscountMessages[currentMessageIndex]}
+            </div>
+        </div>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div style={{ display: isCartOpen ? "block" : "none" }}>
           <p>Cart</p>
@@ -153,7 +163,7 @@ export default function App() {
                     : "none",
               }}
             >
-              Checkout . {useReduce}
+              Checkout <img width="10" height="10" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/full-stop--v1.png" alt="full-stop--v1"/> ₹{useReduce}
             </button>
           </div>
         </div>
