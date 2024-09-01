@@ -7,22 +7,35 @@ export const PoductListPg = () => {
     GetCategoryHandler,
     RangeHandler,
     rangeValue,
+    setRange,
     SortHandler,
     GetSortData,
     filters,
+    setFilter,
     isSidebarOpen,
-    isFilterOpen,
-    ToggleFilter,
-    toggleSidebar
+    toggleSidebar,
+    selectedOption,
+    setSelectedOption,
+    isSideBarFilter,
+    setIsSideBarFilter
   } = useContext(AppContext);
+
+  const getClearBtn =()=>{
+
+    setFilter({categoryValue:[] ,rating:"" ,sort:""})
+    setRange(0)
+    setSelectedOption('')
+  }
 
   return (
     <div>
-      <div className={`filterBar slideFilter  ${isSidebarOpen ? 'open' : ''}`} >
+      <div className={`filterBar slideFilter  ${isSideBarFilter ? 'open' : ''}`} >
         <ul>
-          <p>filter</p>
-          <button className="close-button" onClick={toggleSidebar}>X</button> 
+          <p>Filter</p>
+          <button style={{display : window.innerWidth > 430 ? "none" :"flex"}} className="close-button" onClick={toggleSidebar}>X</button> 
+          
           <p>Category</p>
+          
           <li>
             <input
               type="checkbox"
@@ -69,6 +82,7 @@ export const PoductListPg = () => {
               type="radio"
               onChange={SortHandler}
               value={"LowToHigh"}
+              checked={selectedOption === "LowToHigh"}
             />
             <label>Low-High</label>
           </li>
@@ -78,9 +92,11 @@ export const PoductListPg = () => {
               type="radio"
               onChange={SortHandler}
               value={"HighToLow"}
+              checked={selectedOption === "HighToLow"}
             />
             <label>High-Low</label>
           </li>
+          <li><button onClick={getClearBtn}  className="clear-btn" >Clear</button></li>
         </ul>
       </div>
 

@@ -23,6 +23,9 @@ export default function App() {
     DecQtyHandler,
     toggleSidebar,
     ToggleFilter,
+    isSideBarFilter,
+        setIsSideBarFilter,
+        useReduce
     
   } = useContext(AppContext);
   const userCart = JSON.parse(localStorage.getItem("user")).cart;
@@ -34,17 +37,20 @@ export default function App() {
       {isSidebarOpen && (
         <div className="overlay" onClick={toggleSidebarCart}></div>
       )}
-      {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
+      {isSideBarFilter && <div className="overlay" onClick={toggleSidebar}></div>}
 
       <nav className="nav">
-        
+        <p style={{display:window.innerWidth > 430 ? "none" :"block" , margin:"0"}}>
       <img  onClick={toggleSidebar} style={{ display:window.location.pathname === "/product"  ? "block" :"none",
-        marginLeft:"1rem" , paddingTop:"1rem"}} width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png" alt="menu--v1"/>
+        marginLeft:"1rem" , paddingTop:"1rem"}} width="25" height="25" src="https://img.icons8.com/ios-filled/25/5fa052/menu--v6.png" alt="menu--v1"/>
+        </p>
+        
+        
         <h3 onClick={() => navigate("/product")}>BookStore</h3>
         <span>
           <img
             className="cart-button"
-            onClick={toggleSidebarCart}
+            onClick={  toggleSidebarCart}
             width={window.innerWidth > 430 ?"40":"30"}
             height={window.innerWidth > 430 ?"40":"30"}
             src="https://img.icons8.com/pastel-glyph/64/5fa052/shopping-cart--v2.png"
@@ -68,7 +74,7 @@ export default function App() {
           />
         </span>
       </nav>
-      <div style={{display:innerWidth >430 ? "block" :"none"}} className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div style={{ display: isCartOpen ? "block" : "none" }}>
           <p>Cart</p>
           <button className="close-button" onClick={toggleSidebarCart}>
@@ -147,7 +153,7 @@ export default function App() {
                     : "none",
               }}
             >
-              Checkout
+              Checkout . {useReduce}
             </button>
           </div>
         </div>
@@ -160,6 +166,16 @@ export default function App() {
           <hr />
 
           <div>
+          <p
+              style={{
+                display:
+                  JSON.parse(localStorage.getItem("user")).wishlist.length > 0
+                    ? "none"
+                    : "block",
+              }}
+            >
+              Wishlist is empty!
+            </p>
             {JSON.parse(localStorage.getItem("user")).wishlist.map((item) => (
               <div id={item._id} className="CartContainer">
                 <div className="imgDiv">

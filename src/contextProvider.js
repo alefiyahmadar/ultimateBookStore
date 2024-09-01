@@ -29,7 +29,8 @@ export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [isCartOpen, setCartOpen] = useState();
   
-  const [isFilterOpen , setIsFilterOpen] = useState(false)
+  
+  const [selectedOption, setSelectedOption] = useState('');
   const [getId, setId] = useState(0);
   const [AdressArr, setAdressArr] = useState([
     {
@@ -45,9 +46,10 @@ export const AppContextProvider = ({ children }) => {
     },
   ]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSideBarFilter , setIsSideBarFilter] = useState(false)
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSideBarFilter(!isSideBarFilter);
   };
 
   const toggleSidebarCart = () => {
@@ -102,6 +104,7 @@ export const AppContextProvider = ({ children }) => {
 
   const SortHandler = (event) => {
     setFilter({ ...filters, sort: event.target.value });
+    setSelectedOption(event.target.value)
   };
 
   const GetSortData = filters.sort
@@ -267,6 +270,10 @@ export const AppContextProvider = ({ children }) => {
     console.log(updateArr);
     localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
+
+  const useReduce =  JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
+
+  console.log(useReduce)
   return (
     <AppContext.Provider
       value={{
@@ -280,6 +287,7 @@ export const AppContextProvider = ({ children }) => {
         GetCategoryData,
         RangeHandler,
         rangeValue,
+        setRange,
         GetRatingData,
         SortHandler,
         GetSortData,
@@ -302,7 +310,12 @@ export const AppContextProvider = ({ children }) => {
         getId,
         setId,
         DecQtyHandler,
-        toggleSidebar
+        toggleSidebar,
+        selectedOption,
+        setSelectedOption,
+        isSideBarFilter,
+        setIsSideBarFilter,
+        useReduce
       
       }}
     >
