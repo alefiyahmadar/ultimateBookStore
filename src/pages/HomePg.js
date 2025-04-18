@@ -13,7 +13,7 @@ export const HomePage = () => {
     <div className="homeContainer">
       <div className="homeMain">
         <div className="image-container">
-          <div className="home-bg"></div>
+          
         </div>
       </div>
       <div className="categoryContiner">
