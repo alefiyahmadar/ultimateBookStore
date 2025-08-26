@@ -45,7 +45,7 @@ export default function App() {
 
       <nav className="nav">
         <p style={{display:window.innerWidth > 430 ? "none" :"block" , margin:"0"}}>
-      <img  onClick={toggleSidebar} style={{ display:window.location.pathname === "/product"  ? "block" :"none",
+      <img  onClick={toggleSidebar} style={{ display:window.location.pathname === "/Product"  ? "block" :"none",
         marginLeft:"1rem" , paddingTop:"1rem"}} width="25" height="25" src="https://img.icons8.com/ios-filled/25/5fa052/menu--v6.png" alt="menu--v1"/>
         </p>
         
@@ -101,7 +101,7 @@ export default function App() {
           <hr />
           <div>
             {JSON.parse(localStorage.getItem("user")).cart.map((item) => (
-              <div id={item._id} className="CartContainer">
+              <div id={item._id} className="CartContainer" >
                 <div className="imgDiv">
                   <img src={item.image}></img>
                 </div>
