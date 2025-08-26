@@ -11,7 +11,7 @@ export const LoginPage = () => {
 
 const GuestHandler =()=>{
 setIsLoggedIn(true)
-navigate("/")
+navigate("/Product")
 
 }
 const LoginHandler =()=>{
@@ -22,7 +22,7 @@ const LoginHandler =()=>{
         console.log(user)
         localStorage.setItem("user" , JSON.stringify(user))
         setIsLoggedIn(true)
-        navigate("/")
+        navigate("/Product")
       }else{
 
 
@@ -30,6 +30,7 @@ const LoginHandler =()=>{
 
 
   })
+  return GetUser
 }
 
   return (

@@ -50,7 +50,7 @@ export default function App() {
         </p>
         
         
-        <h3 onClick={() => navigate("/product")}>BookStore</h3>
+        <h3 onClick={() => navigate("/product")}>LiteraryLinx</h3>
         <span>
           <img
             className="cart-button"
@@ -242,7 +242,7 @@ export default function App() {
         <Route path="/user" element={ isLoggedIn ? <UserPage />:<AuthWrapper><UserPage/></AuthWrapper>}></Route>
       </Routes>
 
-      <footer style={{display:window.location.pathname === "/product" ? "none" :"flex"}}>
+      <footer style={{display:window.location.pathname === "/Product" ? "none" :"flex"}}>
         <ul className="footerUl">
           <div className="about">
             <h3>LiteraryLinx</h3>

@@ -97,8 +97,10 @@ body {
     background-color: beige;
     margin-bottom: 0;
     text-align: left;
-position: absolute;
+position: fixed;
 width: 100%;
+bottom: 0;
+
   }
   .footerUl{
     display: flex;
@@ -211,6 +213,10 @@ margin-left: 1rem;
   padding: 0.5rem;
   background-color: #5fa052;
   color: white;
+}
+.ProdDetailDiv{
+
+  padding-bottom: 120px;
 }
 .ProdDetailDiv div{
   padding: 0.5rem;
@@ -757,6 +763,7 @@ margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 430px) {
+
   .nav {
     background-color: beige;
     padding: 1.1rem;
@@ -944,6 +951,8 @@ gap: 1rem;
     background-color: beige;
     display: flex;
     padding-left: 2rem;
+    
+    width: 100%;
   }
   .footerUl {
     display: flex;
