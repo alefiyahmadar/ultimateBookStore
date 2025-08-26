@@ -1398,7 +1398,7 @@ margin-left: 5rem;
     background-color: #518945;
   }
   .homeContainer {
-    padding-top: 4.5rem;
+    padding-top: 1rem;
     display: grid;
   
     grid-template-columns: 50px 50px  auto 50px 50px ;
@@ -1410,9 +1410,11 @@ margin-left: 5rem;
     width: 100%;
   
     background-color: #4caf50;
-    grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
     grid-row-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 4;
     
     background-image: url(/src/images/home.jpg);
     background-size:cover;
