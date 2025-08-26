@@ -278,35 +278,52 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const DecQtyHandler = (item) => {
+
     const userData = JSON.parse(localStorage.getItem("user"));
     const userArrData = JSON.parse(localStorage.getItem("usersArray"));
 
-    setProduct((prevItem) =>
-      prevItem.map((e) =>
-        e.title === item.title ? { ...e,  quantity:  e.quantity - 1 } : e
-      )
-    );
 
-    const updatedUser = {
-      ...userData,
-      cart: userData.cart.map((e) =>
-        e.title === item.title ? { ...e, quantity: e.quantity - 1 } : e
-      ),
-    };
-
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    const updateArr = userArrData.map((e) =>
-      e.email === userData.email && e.password === userData.password
-        ? { ...e, cart:e.cart.map((u)=>u.title === item.title ? u.quantity > {...u , quantity:u.quantity-1}: u) }
+  setProduct((prevItem) =>
+    prevItem.map((e) =>
+      e.title === item.title
+        ? { ...e, quantity: e.quantity > 0 ? e.quantity - 1 : 0 } 
         : e
-    );
-    console.log(updateArr);
-    localStorage.setItem("usersArray", JSON.stringify(updateArr));
+    )
+  );
+
+  
+  const updatedUser = {
+    ...userData,
+    cart: userData.cart.map((e) =>
+      e.title === item.title
+        ? { ...e, quantity: e.quantity > 0 ? e.quantity - 1 : 0 } 
+        : e
+    ),
+  };
+
+  localStorage.setItem("user", JSON.stringify(updatedUser));
+
+  
+  const updateArr = userArrData.map((e) =>
+    e.email === userData.email && e.password === userData.password
+      ? {
+          ...e,
+          cart: e.cart.map((u) =>
+            u.title === item.title
+              ? { ...u, quantity: u.quantity > 0 ? u.quantity - 1 : 0 } 
+              : u
+          ),
+        }
+      : e
+  );
+
+  console.log(updateArr);
+  localStorage.setItem("usersArray", JSON.stringify(updateArr));
   };
 
   const useReduce =  JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + (curr.price-50)  * curr.quantity , 0)
 
-  console.log(useReduce)
+  
   return (
     <AppContext.Provider
       value={{
